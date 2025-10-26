@@ -136,7 +136,7 @@ export default function ProjectDetails() {
                   <div className="bg-primary text-white p-2 w-fit rounded-full flex items-center justify-center">
                     <MdPerson />
                   </div>
-                  <div className="flex gap-4 text-lg">
+                  <div className="flex gap-4 text-xs md:text-lg">
                     <p className="font-semibold ml-4">Client Name:</p>
                     <p>{project.clientName}</p>
                   </div>
@@ -146,7 +146,7 @@ export default function ProjectDetails() {
                   <div className="bg-primary text-white p-2 w-fit rounded-full flex items-center justify-center">
                     <BiSolidCategory />
                   </div>
-                  <div className="flex gap-4 text-lg">
+                  <div className="flex gap-4 text-xs md:text-lg">
                     <p className="font-semibold ml-4">Category:</p>
                     <p>{project.category}</p>
                   </div>
@@ -156,7 +156,7 @@ export default function ProjectDetails() {
                   <div className="bg-primary text-white p-2 w-fit rounded-full flex items-center justify-center">
                     <FaLocationDot />
                   </div>
-                  <div className="flex gap-4 text-lg">
+                  <div className="flex gap-4 text-xs md:text-lg">
                     <p className="font-semibold ml-4">Location:</p>
                     <p>{project.location}</p>
                   </div>
@@ -166,8 +166,8 @@ export default function ProjectDetails() {
                   <div className="bg-primary text-white p-2 w-fit rounded-full flex items-center justify-center">
                     <IoIosTime />
                   </div>
-                  <div className="flex gap-4 text-lg">
-                    <p className="font-semibold ml-4">Timeline:</p>
+                  <div className="flex gap-4 text-xs md:text-lg">
+                    <p className="font-semibold ml-4 ">Timeline:</p>
                     <p>
                       {formatDate(project.startDate)} -{" "}
                       {formatDate(project.endDate)}

@@ -87,7 +87,7 @@ export default function AddTestimonials() {
 
   return (
     <section className="p-6 max-w-4xl mx-auto">
-      <h2 className="text-2xl font-semibold mb-4 text-primary">
+      <h2 className="text-2xl text-center md:text-left font-semibold mb-4 text-primary">
         Manage Testimonials
       </h2>
 

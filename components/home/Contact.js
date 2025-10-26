@@ -59,11 +59,11 @@ export default function Contact() {
           />
 
           {/* Overlay Text */}
-          <div className="absolute bottom-5 left-6 text-white drop-shadow-lg">
+          <div className="absolute bottom-5 px-6 text-white drop-shadow-lg">
             <h3 className="text-lg md:text-xl font-semibold mb-1">
               Clean Your Space
             </h3>
-            <p className="text-sm md:text-base font-light opacity-90">
+            <p className="text-sm md:text-base font-light min-w-2xl opacity-90">
               Your comfort and productivity depend largely on it.
             </p>
           </div>

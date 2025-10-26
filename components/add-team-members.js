@@ -200,7 +200,7 @@ export default function ManageTeam() {
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="flex justify-between flex-col md:flex-row items-center mb-8">
-          <h1 className="text-3xl font-bold text-primary font-bricolage">
+          <h1 className="text-3xl font-bold text-primary text-center md:text-left font-bricolage">
             MANAGE TEAM MEMBERS
           </h1>
           <button

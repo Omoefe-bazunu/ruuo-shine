@@ -67,23 +67,19 @@ export default function ManageMessages() {
               <tr>
                 <th className="px-4 py-2 text-left">Name</th>
                 <th className="px-4 py-2 text-left">Email</th>
-                <th className="px-4 py-2 text-left">Phone</th>
-                <th className="px-4 py-2 text-left">Date</th>
-                <th className="px-4 py-2 text-left">Time</th>
+                <th className="px-4 py-2 text-left">Message</th>
                 <th className="px-4 py-2 text-center">Action</th>
               </tr>
             </thead>
             <tbody>
-              {contactMessages.map((consult) => (
-                <tr key={consult.id} className="border-b hover:bg-gray-50">
-                  <td className="px-4 py-2">{consult.name}</td>
-                  <td className="px-4 py-2">{consult.email}</td>
-                  <td className="px-4 py-2">{consult.phone}</td>
-                  <td className="px-4 py-2">{consult.date}</td>
-                  <td className="px-4 py-2">{consult.time}</td>
+              {contactMessages.map((msg) => (
+                <tr key={msg.id} className="border-b hover:bg-gray-50">
+                  <td className="px-4 py-2">{msg.name}</td>
+                  <td className="px-4 py-2">{msg.email}</td>
+                  <td className="px-4 py-2">{msg.message}</td>
                   <td className="px-4 py-2 text-center">
                     <button
-                      onClick={() => handleDelete(consult.id)}
+                      onClick={() => handleDelete(msg.id)}
                       className="text-red-600 hover:underline"
                     >
                       Delete

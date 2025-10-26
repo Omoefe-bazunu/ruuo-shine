@@ -9,7 +9,7 @@ export default function Hero() {
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
         {/* Text Content */}
         <div className="md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
-          <h1 className="text-4xl font-bricolage text-primary md:text-6xl max-w-5xl font-bold mb-4">
+          <h1 className="text-4xl font-bricolage text-primary md:text-6xl max-w-5xl md:font-bold font-extrabold mb-4">
             <span className="text-cta">PREMIUM CLEANING SERVICES</span>
             <br />
             <span className="text-primary">AT YOUR CALL</span>

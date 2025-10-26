@@ -21,7 +21,7 @@ export default function Services() {
           </nav>
         </div>
         <h2 className="text-4xl text-center  font-bricolage font-bold text-primary mt-8 mb-2 uppercase">
-          GET IN TOUCH WITH US
+          GET IN TOUCH
         </h2>
         <p className="text-secondary text-center text-sm mb-8">
           We are more than welcome to hear from you and serve you better. Get in
