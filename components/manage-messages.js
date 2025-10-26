@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { db } from "@/lib/firebase";
 import {
   collection,
   getDocs,
@@ -9,123 +10,91 @@ import {
   orderBy,
   query,
 } from "firebase/firestore";
-import { db } from "@/lib/firebase";
-import { toast } from "react-toastify";
-import { Loader2, Trash2 } from "lucide-react";
 
 export default function ManageMessages() {
-  const [messages, setMessages] = useState([]);
+  const [contactMessages, setcontactMessages] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [deletingId, setDeletingId] = useState(null);
 
-  // Fetch messages from Firestore
-  const fetchMessages = async () => {
+  const fetchcontactMessages = async () => {
     try {
-      setLoading(true);
       const q = query(
         collection(db, "contactMessages"),
         orderBy("createdAt", "desc")
       );
-      const snapshot = await getDocs(q);
-      const data = snapshot.docs.map((doc) => ({
+      const querySnapshot = await getDocs(q);
+      const data = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-      setMessages(data);
+      setcontactMessages(data);
     } catch (error) {
-      console.error("Error fetching messages:", error);
-      toast.error("Failed to load messages.");
+      console.error("Error fetching contactMessages:", error);
     } finally {
       setLoading(false);
     }
   };
 
-  useEffect(() => {
-    fetchMessages();
-  }, []);
-
-  // Delete message
   const handleDelete = async (id) => {
-    if (!confirm("Are you sure you want to delete this message?")) return;
-
-    try {
-      setDeletingId(id);
+    if (confirm("Are you sure you want to delete this consultation?")) {
       await deleteDoc(doc(db, "contactMessages", id));
-      toast.success("Message deleted successfully.");
-      setMessages(messages.filter((msg) => msg.id !== id));
-    } catch (error) {
-      console.error("Error deleting message:", error);
-      toast.error("Failed to delete message.");
-    } finally {
-      setDeletingId(null);
+      setcontactMessages((prev) => prev.filter((item) => item.id !== id));
     }
   };
 
-  return (
-    <section className="min-h-screen bg-gray-50 py-12 px-4 md:px-10">
-      <div className="max-w-5xl mx-auto bg-white shadow-lg rounded-2xl p-6">
-        <h1 className="text-3xl font-bricolage font-bold text-primary mb-6 text-center">
-          Contact Messages
-        </h1>
+  useEffect(() => {
+    fetchcontactMessages();
+  }, []);
 
-        {loading ? (
-          <div className="flex justify-center py-12">
-            <Loader2 className="animate-spin text-primary w-8 h-8" />
-          </div>
-        ) : messages.length === 0 ? (
-          <p className="text-center text-gray-500 py-8">No messages found.</p>
-        ) : (
-          <div className="overflow-x-auto">
-            <table className="min-w-full border-collapse">
-              <thead>
-                <tr className="bg-primary text-white text-sm md:text-base">
-                  <th className="py-3 px-4 text-left rounded-tl-lg">Name</th>
-                  <th className="py-3 px-4 text-left">Email</th>
-                  <th className="py-3 px-4 text-left">Message</th>
-                  <th className="py-3 px-4 text-left">Date</th>
-                  <th className="py-3 px-4 text-center rounded-tr-lg">
-                    Action
-                  </th>
+  if (loading)
+    return (
+      <p className="text-center mt-10 text-gray-600">
+        Loading contactMessages...
+      </p>
+    );
+
+  return (
+    <section className="p-6">
+      <h2 className="text-2xl font-bold text-primary mb-4 text-center font-bricolage">
+        All Messages
+      </h2>
+
+      {contactMessages.length === 0 ? (
+        <p className="text-center text-gray-500">No Messages received yet.</p>
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="min-w-full border border-gray-200 bg-white rounded-xl shadow-sm">
+            <thead className="bg-primary text-white">
+              <tr>
+                <th className="px-4 py-2 text-left">Name</th>
+                <th className="px-4 py-2 text-left">Email</th>
+                <th className="px-4 py-2 text-left">Phone</th>
+                <th className="px-4 py-2 text-left">Date</th>
+                <th className="px-4 py-2 text-left">Time</th>
+                <th className="px-4 py-2 text-center">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {contactMessages.map((consult) => (
+                <tr key={consult.id} className="border-b hover:bg-gray-50">
+                  <td className="px-4 py-2">{consult.name}</td>
+                  <td className="px-4 py-2">{consult.email}</td>
+                  <td className="px-4 py-2">{consult.phone}</td>
+                  <td className="px-4 py-2">{consult.date}</td>
+                  <td className="px-4 py-2">{consult.time}</td>
+                  <td className="px-4 py-2 text-center">
+                    <button
+                      onClick={() => handleDelete(consult.id)}
+                      className="text-red-600 hover:underline"
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {messages.map((msg) => (
-                  <tr
-                    key={msg.id}
-                    className="border-b hover:bg-gray-50 transition-colors"
-                  >
-                    <td className="py-3 px-4 font-medium text-gray-800">
-                      {msg.name}
-                    </td>
-                    <td className="py-3 px-4 text-gray-600">{msg.email}</td>
-                    <td className="py-3 px-4 text-gray-600 max-w-sm truncate">
-                      {msg.message}
-                    </td>
-                    <td className="py-3 px-4 text-gray-500 text-sm">
-                      {msg.createdAt?.toDate
-                        ? msg.createdAt.toDate().toLocaleString()
-                        : "N/A"}
-                    </td>
-                    <td className="py-3 px-4 text-center">
-                      <button
-                        onClick={() => handleDelete(msg.id)}
-                        disabled={deletingId === msg.id}
-                        className="bg-red-500 hover:bg-red-600 text-white p-2 rounded-md transition"
-                      >
-                        {deletingId === msg.id ? (
-                          <Loader2 className="animate-spin w-4 h-4 mx-auto" />
-                        ) : (
-                          <Trash2 className="w-4 h-4" />
-                        )}
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </div>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </section>
   );
 }

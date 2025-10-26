@@ -109,7 +109,7 @@ export default function Team() {
 
   return (
     <section
-      className="py-16 px-4 md:px-20 bg-gray-50 text-center relative"
+      className="py-4 px-4 md:px-20 bg-gray-50 text-center relative"
       style={{
         backgroundImage:
           "url('https://firebasestorage.googleapis.com/v0/b/penned-aae02.appspot.com/o/General%2Fteam-bg.jpg?alt=media')",
@@ -124,7 +124,7 @@ export default function Team() {
         MEET OUR TEAM
       </h2>
       <p
-        className="text-gray-600 max-w-2xl mx-auto mb-12 animate-fadeIn"
+        className="text-gray-600 max-w-2xl mx-auto mb-4 animate-fadeIn"
         style={{ animationDelay: "0.2s" }}
       >
         The dedicated professionals behind RUUO SHINE, ensuring every service
