@@ -17,7 +17,7 @@ export default function Services() {
           <div className="bg-white rounded-[20px] p-4 flex flex-col items-center text-center">
             <div className="relative overflow-hidden rounded-[16px] w-full h-[40rem]">
               <Image
-                src="/SERVICE1.jpeg"
+                src="/serv.jpeg"
                 alt="Residential Cleaning"
                 fill
                 className="object-cover"
@@ -38,7 +38,7 @@ export default function Services() {
           <div className="bg-white rounded-[20px] p-4 flex flex-col items-center text-center">
             <div className="relative overflow-hidden rounded-[16px] w-full h-[40rem]">
               <Image
-                src="/SERVICE2.jpeg"
+                src="/serv1.jpeg"
                 alt="Commercial Cleaning"
                 fill
                 className="object-cover"

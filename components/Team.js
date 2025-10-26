@@ -109,7 +109,7 @@ export default function Team() {
 
   return (
     <section
-      className="py-4 px-4 md:px-20 bg-gray-50 text-center relative"
+      className="py-2 px-4 md:px-20 bg-gray-50 text-center relative"
       style={{
         backgroundImage:
           "url('https://firebasestorage.googleapis.com/v0/b/penned-aae02.appspot.com/o/General%2Fteam-bg.jpg?alt=media')",
@@ -136,7 +136,7 @@ export default function Team() {
         <div
           className={`absolute transition-all duration-700 ease-in-out ${
             isSliding ? "slide-exit" : "z-20"
-          } w-[85%] md:w-[50%] bg-white p-8 rounded-2xl shadow-xl mx-auto`}
+          } w-[85%] md:w-[50%] bg-white p-8 rounded-2xl border-b-4 border-primary shadow-xl mx-auto`}
         >
           <div className="flex flex-col items-center">
             <div className="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-primary flex items-center justify-center bg-gray-50">
@@ -148,7 +148,7 @@ export default function Team() {
                 className="object-cover w-full h-full"
               />
             </div>
-            <h3 className="text-xl font-semibold text-primary mb-1">
+            <h3 className="text-xl font-bricolage uppercase font-semibold text-primary mb-1">
               {current.name}
             </h3>
             <p className="text-gray-500 mb-3">{current.role}</p>

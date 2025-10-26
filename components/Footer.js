@@ -54,7 +54,7 @@ export default function Footer() {
         {/* Contact Information */}
         <div className="text-center md:text-right">
           <p className=" mb-2">
-            <span className="font-medium">Phone:</span> +44 9043970401
+            <span className="font-medium">Phone:</span> +44 7824678276
           </p>
           <p className="mb-2">
             <span className="font-medium">Email:</span> info@ruuoshine.co.uk

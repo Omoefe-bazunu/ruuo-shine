@@ -31,7 +31,7 @@ export default function AboutUs() {
                 Contact Us
               </span>
               <span className="ml-2 text-primary font-medium">
-                +44 9043970401
+                +44 7824678276
               </span>
             </Link>
           </div>
@@ -54,19 +54,19 @@ export default function AboutUs() {
           <div className="grid grid-rows-2 gap-4">
             <div className="rounded-2xl overflow-hidden">
               <Image
-                src="/ABOUT3.jpeg"
+                src="/project1.jpeg"
                 alt="Cleaner with duster"
                 width={500}
-                height={350}
+                height={300}
                 className="rounded-xl object-cover border-t-4 border-primary w-full h-[200px] md:h-[220px]"
               />
             </div>
             <div className="rounded-2xl overflow-hidden">
               <Image
-                src="/ABOUT4.jpeg"
+                src="/project3.jpeg"
                 alt="Cleaner team in action"
                 width={500}
-                height={350}
+                height={300}
                 className="rounded-xl object-cover border-t-4 border-primary w-full h-[200px] md:h-[220px]"
               />
             </div>

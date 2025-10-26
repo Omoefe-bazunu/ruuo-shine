@@ -12,7 +12,7 @@ const colors = {
   offWhite: "#F7F7F7",
 };
 
-const missionImage = "/about.png";
+const missionImage = "/ABOUT3.jpeg";
 
 export default function AboutUsContent() {
   return (
@@ -41,13 +41,14 @@ export default function AboutUsContent() {
             {/* Mission Image/Text Wrapper */}
             <div className="w-full md:w-1/2 mb-8 md:mb-0 relative">
               {/* Image Group - Using a placeholder for the image block */}
-              <div className="h-96 w-full flex justify-center items-center bg-gray-100 rounded-lg shadow-xl overflow-hidden">
+              <div className="h-[500px] border-4 border-primary rounded-xl shadow-xl overflow-hidden w-full mx-auto">
                 <Image
                   src={missionImage}
                   alt="RUUO SHINE team members working"
-                  width={800}
-                  height={600}
-                  className="w-full h-auto object-contain"
+                  layout="fill"
+                  // CHANGE: Use "cover" to fill the entire width and height, eliminating empty space.
+                  objectFit="cover"
+                  className="rounded-xl"
                 />
               </div>
 
@@ -63,7 +64,7 @@ export default function AboutUsContent() {
             </div>
 
             {/* Mission Statement Text */}
-            <div className="w-full md:w-1/2">
+            <div className="w-full mt-6 md:mt-0 md:w-1/2">
               <h3 className="text-3xl font-bold text-primary font-bricolage mb-4">
                 ABOUT US
               </h3>
