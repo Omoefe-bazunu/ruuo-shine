@@ -165,7 +165,7 @@ const AuthModal = ({ isOpen, onClose }) => {
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-3">
           {!resetMode && !isLogin && (
-            <div>
+            <div className="hidden">
               <label className="text-sm block mb-1">Full name</label>
               <input
                 name="displayName"
@@ -207,7 +207,7 @@ const AuthModal = ({ isOpen, onClose }) => {
           )}
 
           {!resetMode && !isLogin && (
-            <div>
+            <div className="hidden">
               <label className="text-sm block mb-1">Confirm Password</label>
               <input
                 name="confirmPassword"
@@ -261,7 +261,7 @@ const AuthModal = ({ isOpen, onClose }) => {
                 </p>
               ) : isLogin ? (
                 <>
-                  <p>
+                  {/* <p>
                     Don't have an account?{" "}
                     <button
                       onClick={() => switchMode(false)}
@@ -269,7 +269,7 @@ const AuthModal = ({ isOpen, onClose }) => {
                     >
                       Sign Up
                     </button>
-                  </p>
+                  </p> */}
                   <p className="mt-2">
                     <button
                       onClick={() => {

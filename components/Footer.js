@@ -60,8 +60,8 @@ export default function Footer() {
             <span className="font-medium">Email:</span> info@ruuoshine.co.uk
           </p>
           <p className="">
-            <span className="font-medium">Address:</span> 123 Cleaning Lane,
-            London, UK
+            <span className="font-medium">Address:</span> 71-75 Shelton Street,
+            Covent Garden, London, WC2H 9JQ
           </p>
         </div>
       </div>
