@@ -24,15 +24,10 @@ export default function AboutUs() {
           </div>
           <div className="flex justify-center md:justify-start">
             <Link
-              href="/contact"
-              className="flex items-center bg-emerald-50 text-white py-4 px-4 rounded-lg hover:bg-gray-100 transition-colors w-fit"
+              href="/about"
+              className="flex bg-cta text-white px-6 py-3 rounded-full hover:bg-primary transition-colors text-center font-medium"
             >
-              <span className="bg-primary py-2 px-4 rounded-lg">
-                Contact Us
-              </span>
-              <span className="ml-2 text-primary font-medium">
-                +44 7824678276
-              </span>
+              See More
             </Link>
           </div>
         </div>
