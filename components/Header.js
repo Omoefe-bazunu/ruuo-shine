@@ -120,15 +120,15 @@ export default function Header() {
               className="flex items-center space-x-3"
               onClick={toggleMenu}
             >
-              <div className="relative w-10 h-10">
+              {/* <div className="relative w-10 h-10">
                 <Image
-                  src="/images/logo.png" // 🔁 Replace with your logo path
+                  src="/logo/logonav.png" // 🔁 Replace with your logo path
                   alt="RUUO SHINE Logo"
                   fill
                   className="object-contain"
                 />
-              </div>
-              <div className="flex flex-col leading-tight">
+              </div> */}
+              <div className="flex flex-col leading-tight pl-4">
                 <span className="text-xl font-bold text-primary">
                   RUUO SHINE
                 </span>
