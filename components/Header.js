@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function Header() {
@@ -12,10 +13,24 @@ export default function Header() {
     <>
       <header className="bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="text-2xl text-primary flex flex-col">
-            <span className="font-bold">RUUO SHINE</span>
-            <span className="text-xs font-semibold">CLEANING EXPERTS LTD</span>
+          {/* Logo Section */}
+          <Link href="/" className="flex items-center space-x-3">
+            <div className="relative w-16 h-16">
+              <Image
+                src="/logo/logonav.png"
+                alt="RUUO SHINE Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="flex flex-col leading-tight">
+              <span className="text-2xl font-bold text-primary">
+                RUUO SHINE
+              </span>
+              <span className="text-xs font-semibold text-secondary">
+                CLEANING EXPERTS LTD
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -102,14 +117,27 @@ export default function Header() {
           <div className="flex items-center justify-between p-4 border-b border-gray-200">
             <Link
               href="/"
-              className="text-xl text-primary flex flex-col"
+              className="flex items-center space-x-3"
               onClick={toggleMenu}
             >
-              <span className="font-bold">RUUO SHINE</span>
-              <span className="text-xs font-semibold">
-                CLEANING EXPERTS LTD
-              </span>
+              <div className="relative w-10 h-10">
+                <Image
+                  src="/images/logo.png" // 🔁 Replace with your logo path
+                  alt="RUUO SHINE Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex flex-col leading-tight">
+                <span className="text-xl font-bold text-primary">
+                  RUUO SHINE
+                </span>
+                <span className="text-[10px] font-semibold text-secondary">
+                  CLEANING EXPERTS LTD
+                </span>
+              </div>
             </Link>
+
             <button
               onClick={toggleMenu}
               className="text-secondary focus:outline-none"
@@ -133,41 +161,22 @@ export default function Header() {
 
           {/* Mobile Menu Links */}
           <div className="flex flex-col p-6 flex-grow">
-            <Link
-              href="/"
-              className="text-secondary hover:text-white hover:bg-primary rounded-sm p-2 transition-colors text-lg font-medium"
-              onClick={toggleMenu}
-            >
-              Home
-            </Link>
-            <Link
-              href="/services"
-              className="text-secondary hover:text-white hover:bg-primary rounded-sm p-2 transition-colors text-lg font-medium"
-              onClick={toggleMenu}
-            >
-              Services
-            </Link>
-            <Link
-              href="/projects"
-              className="text-secondary hover:text-white hover:bg-primary rounded-sm p-2 transition-colors text-lg font-medium"
-              onClick={toggleMenu}
-            >
-              Projects
-            </Link>
-            <Link
-              href="/about"
-              className="text-secondary hover:text-white hover:bg-primary rounded-sm p-2 transition-colors text-lg font-medium"
-              onClick={toggleMenu}
-            >
-              About Us
-            </Link>
-            <Link
-              href="/contact"
-              className="text-secondary hover:text-white hover:bg-primary rounded-sm p-2 transition-colors text-lg font-medium"
-              onClick={toggleMenu}
-            >
-              Contact Us
-            </Link>
+            {[
+              { href: "/", label: "Home" },
+              { href: "/services", label: "Services" },
+              { href: "/projects", label: "Projects" },
+              { href: "/about", label: "About Us" },
+              { href: "/contact", label: "Contact Us" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-secondary hover:text-white hover:bg-primary rounded-sm p-2 transition-colors text-lg font-medium"
+                onClick={toggleMenu}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
 
           {/* CTA Button at Bottom */}
