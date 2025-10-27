@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="mb-6 md:mb-0 flex flex-col items-center md:items-start">
           <Link
             href="/"
-            className="flex flex-col md:flex-row space-y-4 items-center space-x-3"
+            className="flex flex-col md:flex-row space-y-4 md:space-y-0 items-center space-x-3"
           >
             <div className="relative w-12 h-12">
               <Image
