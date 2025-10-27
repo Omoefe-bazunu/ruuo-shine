@@ -15,7 +15,7 @@ export default function Header() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           {/* Logo Section */}
           <Link href="/" className="flex items-center space-x-3">
-            <div className="relative w-16 h-16">
+            <div className="relative w-12 h-12">
               <Image
                 src="/logo/logonav.png"
                 alt="RUUO SHINE Logo"
