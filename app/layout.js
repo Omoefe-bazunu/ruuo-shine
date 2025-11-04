@@ -1,6 +1,6 @@
 import "./globals.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+// import Header from "../components/Header";
+// import Footer from "../components/Footer";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { Poppins, Bricolage_Grotesque } from "next/font/google";
 
@@ -33,9 +33,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${poppins.variable} ${bricolage.variable}`}>
       <body className="antialiased font-sans min-h-screen flex flex-col">
         <AuthProvider>
-          <Header />
+          {/* <Header /> */}
           <main className="grow">{children}</main>
-          <Footer />
+          {/* <Footer /> */}
         </AuthProvider>
       </body>
     </html>
